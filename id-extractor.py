@@ -4,9 +4,8 @@ import csv
 import time
 import os
 
-PATH_WIKI_XML = '/datapartition/surface-names/final/'
-FILENAME_WIKI = 'try1.xml'
-PATH_OUTPUT = '/datapartition/surface-names/output2016/'
+PATH_WIKI_XML = '/mnt/d/Experiment/'
+FILENAME_WIKI = 'wikidump.xml'
 FILENAME_ARTICLES = 'articles.csv'
 FILENAME_REDIRECT = 'articles_redirect.csv'
 FILENAME_TEMPLATE = 'articles_template.csv'
@@ -23,15 +22,15 @@ def hms_string(sec_elapsed):
 
 def strip_tag_name(t):
     t = elem.tag
-    idx = k = t.rfind("}")
+    idx = t.rfind("}")
     if idx != -1:
         t = t[idx + 1:]
     return t
 
 
 pathWikiXML = os.path.join(PATH_WIKI_XML, FILENAME_WIKI)
-pathArticles = os.path.join(PATH_OUTPUT, FILENAME_ARTICLES)
-pathArticlesRedirect = os.path.join(PATH_OUTPUT, FILENAME_REDIRECT)
+pathArticles = os.path.join(PATH_WIKI_XML, FILENAME_ARTICLES)
+pathArticlesRedirect = os.path.join(PATH_WIKI_XML, FILENAME_REDIRECT)
 
 totalCount = 0
 articleCount = 0
@@ -101,7 +100,6 @@ with codecs.open(pathArticles, "a", ENCODING) as articlesFH, \
 
 """
 elapsed_time = time.time() - start_time
-
 print("Total pages: {:,}".format(totalCount))
 print("Template pages: {:,}".format(templateCount))
 print("Article pages: {:,}".format(articleCount))
