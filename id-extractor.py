@@ -4,8 +4,9 @@ import csv
 import time
 import os
 
-PATH_WIKI_XML = '/mnt/d/Experiment/'
-FILENAME_WIKI = 'wikidump.xml'
+PATH_WIKI_XML = '/datapartition/surface-names/final/'
+FILENAME_WIKI = 'try1.xml'
+PATH_OUTPUT = '/datapartition/surface-names/output2016/'
 FILENAME_ARTICLES = 'articles.csv'
 FILENAME_REDIRECT = 'articles_redirect.csv'
 FILENAME_TEMPLATE = 'articles_template.csv'
@@ -22,15 +23,15 @@ def hms_string(sec_elapsed):
 
 def strip_tag_name(t):
     t = elem.tag
-    idx = t.rfind("}")
+    idx = k = t.rfind("}")
     if idx != -1:
         t = t[idx + 1:]
     return t
 
 
 pathWikiXML = os.path.join(PATH_WIKI_XML, FILENAME_WIKI)
-pathArticles = os.path.join(PATH_WIKI_XML, FILENAME_ARTICLES)
-pathArticlesRedirect = os.path.join(PATH_WIKI_XML, FILENAME_REDIRECT)
+pathArticles = os.path.join(PATH_OUTPUT, FILENAME_ARTICLES)
+pathArticlesRedirect = os.path.join(PATH_OUTPUT, FILENAME_REDIRECT)
 
 totalCount = 0
 articleCount = 0
@@ -58,7 +59,7 @@ with codecs.open(pathArticles, "a", ENCODING) as articlesFH, \
    # redirectWriter.writerow(['id', 'title', 'redirect'])
 
     for event, elem in etree.iterparse(pathWikiXML, events=('start', 'end')):
-        
+
         tname = strip_tag_name(elem.tag)
 
         if event == 'start':
