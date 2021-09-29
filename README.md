@@ -1,4 +1,4 @@
-This repository contains the code used for extracting surface names from the Wikipedia XML dump. The code is largely based on [this](https://github.com/jeffheaton/article-code/blob/master/python/wikipedia/wiki-basic-stream.py) and [this](https://github.com/CyberZHG/wiki-dump-reader). [This](https://github.com/indweller/surfacenames) code containing my previous analysis of surface names might be helpful.
+This repository contains the code used for extracting surface names from the Wikipedia XML dump, created for my Bachelor's thesis project. The code is largely based on [this](https://github.com/jeffheaton/article-code/blob/master/python/wikipedia/wiki-basic-stream.py) and [this](https://github.com/CyberZHG/wiki-dump-reader). [This](https://github.com/indweller/surfacenames) code containing my previous analysis of surface names might be helpful.
 
 * To use this repository, first install all the requirements and activate the virtual environment.
 * Before running the code, ensure that the paths in all the files are correct.
